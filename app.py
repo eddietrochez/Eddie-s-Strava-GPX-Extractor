@@ -8,13 +8,25 @@ from flask import Flask, jsonify, request, render_template_string, send_file
 app = Flask(__name__)
 
 # ==================== CONFIGURACIÓN STRAVA ====================
-# Ahora el código es 100% seguro para GitHub Público
-STR_CLIENT_ID = os.environ.get("STRAVA_CLIENT_ID")
-CLIENT_ID = int(STR_CLIENT_ID) if STR_CLIENT_ID else None
-CLIENT_ID = os.environ.get("STRAVA_CLIENT_ID")
-CLIENT_SECRET = os.environ.get("STRAVA_CLIENT_SECRET")
-REFRESH_TOKEN = os.environ.get("STRAVA_REFRESH_TOKEN")
-ACCESS_TOKEN = os.environ.get("STRAVA_ACCES_TOKEN")
+STR_CLIENT_ID = os.environ.get("STRAVA_CLIENT_ID", "").strip()
+CLIENT_SECRET = os.environ.get("STRAVA_CLIENT_SECRET", "").strip()
+REFRESH_TOKEN = os.environ.get("STRAVA_REFRESH_TOKEN", "").strip()
+ACCESS_TOKEN = ""
+
+# Conversión segura a entero para evitar el Error 500
+try:
+    CLIENT_ID = int(STR_CLIENT_ID) if STR_CLIENT_ID else None
+    print(f"✅ CLIENT_ID cargado correctamente como número: {CLIENT_ID}")
+except ValueError:
+    CLIENT_ID = None
+    print(f"❌ ERROR: 'STRAVA_CLIENT_ID' contiene caracteres no válidos en Render: '{STR_CLIENT_ID}'")
+
+# Mensajes de diagnóstico limpios en los Logs
+if not CLIENT_SECRET:
+    print("❌ ERROR: No se encontró la variable STRAVA_CLIENT_SECRET")
+if not REFRESH_TOKEN:
+    print("❌ ERROR: No se encontró la variable STRAVA_REFRESH_TOKEN")
+# ==============================================================
 
 # ==================== TEXTOS ====================
 TEXTS = {
