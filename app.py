@@ -9,10 +9,12 @@ app = Flask(__name__)
 
 # ==================== CONFIGURACIÓN STRAVA ====================
 # Ahora el código es 100% seguro para GitHub Público
+STR_CLIENT_ID = os.environ.get("STRAVA_CLIENT_ID")
+CLIENT_ID = int(STR_CLIENT_ID) if STR_CLIENT_ID else None
 CLIENT_ID = os.environ.get("STRAVA_CLIENT_ID")
 CLIENT_SECRET = os.environ.get("STRAVA_CLIENT_SECRET")
 REFRESH_TOKEN = os.environ.get("STRAVA_REFRESH_TOKEN")
-ACCESS_TOKEN = ""
+ACCESS_TOKEN = os.environ.get("STRAVA_ACCES_TOKEN")
 
 # ==================== TEXTOS ====================
 TEXTS = {
