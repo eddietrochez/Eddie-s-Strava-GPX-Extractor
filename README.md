@@ -17,7 +17,7 @@ A lightweight web application that interfaces with the Strava API to extract act
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git](https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git)
+git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
 cd YOUR-REPO-NAME
 
 # 2. Install dependencies
