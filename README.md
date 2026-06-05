@@ -15,19 +15,19 @@ A lightweight web application that interfaces with the Strava API to extract act
 
 ## 💻 Local Setup
 
-1. **Clone the repository:**
 ```bash
+# 1. Clone the repository
 git clone [https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git](https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git)
 cd YOUR-REPO-NAME
 
-Install dependencies:
+# 2. Install dependencies
 pip install -r requirements.txt
 
-Configure Environment Variables:
-Create a .env file in the root folder and add your credentials:
+# 3. Configure Environment Variables (.env)
+# Create a .env file in the root folder and add your credentials:
 STRAVA_CLIENT_ID=your_client_id
 STRAVA_CLIENT_SECRET=your_client_secret
 FLASK_SECRET_KEY=your_secret_key
 
-Run the app:
+# 4. Run the application
 python app.py
