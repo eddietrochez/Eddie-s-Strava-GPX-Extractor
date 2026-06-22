@@ -80,6 +80,15 @@ HTML_PAGE = """
         .success { background: #1a3a2a; color: #2ecc71; }
     </style>
 </head>
+<script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker registrado'))
+                    .catch(err => console.log('Error:', err));
+            });
+        }
+    </script>
 <body>
     <div class="card">
         <h1>{{ t.title }}</h1>
@@ -253,6 +262,10 @@ def streams_to_gpx(activity_id, streams):
 
 from flask import send_from_directory
 
+@app.route('/sw.js')
+def sw():
+    return send_from_directory('.', 'sw.js')
+    
 @app.route('/manifest.json')
 def manifest():
     return send_from_directory('.', 'manifest.json')
