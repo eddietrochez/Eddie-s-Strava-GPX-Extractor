@@ -64,10 +64,20 @@ HTML_PAGE = """
     
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#fc4c02">
-    <link rel="apple-touch-icon" href="https://img.icons8.com/color/512/gps-device.png">
+    <link rel="apple-touch-icon" href="[https://img.icons8.com/color/512/gps-device.png](https://img.icons8.com/color/512/gps-device.png)">
 
     <style>
-        /* ... tu CSS aquí ... */
+        body { font-family: -apple-system, sans-serif; background: linear-gradient(135deg, #0a0a0a, #1a1a1a); color: white; text-align: center; padding: 20px; margin: 0; min-height: 100vh; }
+        .card { background: #121212; max-width: 540px; margin: 40px auto; padding: 40px 25px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
+        h1 { color: #fc4c02; margin: 0 0 15px 0; }
+        p { color: #bbbbbb; line-height: 1.5; }
+        input { width: 100%; padding: 16px; margin: 15px 0; border-radius: 12px; border: 1px solid #333; background: #1e1e1e; color: white; font-size: 1.05rem; box-sizing: border-box; }
+        button { background: #fc4c02; color: white; padding: 16px; border: none; border-radius: 12px; font-size: 1.15rem; font-weight: bold; width: 100%; cursor: pointer; }
+        button:active { transform: scale(0.97); }
+        button:disabled { background: #444; opacity: 0.8; cursor: not-allowed; }
+        .status-msg { margin-top: 20px; padding: 18px; border-radius: 12px; display: none; font-size: 1.05rem; line-height: 1.5; }
+        .error { background: #3a1a1a; color: #ff6b6b; }
+        .success { background: #1a3a2a; color: #2ecc71; }
     </style>
 </head>
 <body>
